@@ -13,8 +13,9 @@ const Movies = () => {
 
   // api_key and url
   const api_key = process.env.NEXT_PUBLIC_API_KEY;
+  const api_url = process.env.NEXT_PUBLIC_API_URL
   console.log("api key : ", api_key);
-  const url = `http://www.omdbapi.com/?s=avengers&apikey=${api_key}`;
+  const url = `${api_url}/?s=avengers&apikey=${api_key}`;
 
   // function to get movies
   const getMovies = async () => {
@@ -39,13 +40,12 @@ const Movies = () => {
   // console.log("movies : ", movies);
 
   // function to search movie
-  const search_Movie_api_url =  `http://www.omdbapi.com/?s=${inputValue}&apikey=${api_key}`
   const searchMovie = async (e) => {
     e.preventDefault();
     setLoading(true);
     try {
       const response = await axios.get(
-       search_Movie_api_url
+        `${api_url}?s=${inputValue}&apikey=${api_key}`
       );
       // console.log(response.data.Search);
       setMovies(response.data.Search);
