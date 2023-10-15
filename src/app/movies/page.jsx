@@ -39,12 +39,13 @@ const Movies = () => {
   // console.log("movies : ", movies);
 
   // function to search movie
+  const search_Movie_api_url =  `http://www.omdbapi.com/?s=${inputValue}&apikey=${api_key}`
   const searchMovie = async (e) => {
     e.preventDefault();
     setLoading(true);
     try {
       const response = await axios.get(
-        `http://www.omdbapi.com/?s=${inputValue}&apikey=${api_key}`
+       search_Movie_api_url
       );
       // console.log(response.data.Search);
       setMovies(response.data.Search);
