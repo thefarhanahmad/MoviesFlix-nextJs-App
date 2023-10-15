@@ -50,7 +50,7 @@ const Movies = () => {
       // console.log(response.data.Search);
       setMovies(response.data.Search);
     } catch (error) {
-      console.log("Error occured while fetching data : ");
+      console.log("Error occured while getting searched data : ");
       console.error(error);
     }
     setLoading(false);
