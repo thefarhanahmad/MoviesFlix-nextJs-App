@@ -59,10 +59,11 @@ const Navbar = () => {
         </div>
       </div>
 
+{/* responsive nav items */}
       <div
         className={`absolute justify-center items-center flex-col gap-4 py-6 flex sm:hidden ${
           openMenuBar ? "hidden" : "flex"
-        } transition-all duration-200 top-24 bg-white font-semibold text-red-600  w-full z-10`}
+        } transition-all duration-200 top-[10%] bg-white font-semibold text-red-600  w-full z-10`}
       >
         <Link
           onClick={changeMenubar}
@@ -87,7 +88,7 @@ const Navbar = () => {
         </Link>
         <div
           onClick={changeMenubar}
-          className="bg-white bg-transparent backdrop-blur-[2px] w-full h-[80vh] z-0 top-[9.5rem] transition-all duration-200 absolute"
+          className=" bg-transparent backdrop-blur-[2px] w-full h-[80vh] z-0 top-[9.5rem] transition-all duration-200 absolute"
         ></div>
       </div>
     </div>
