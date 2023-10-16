@@ -13,7 +13,7 @@ const Movies = () => {
 
   // api_key and url
   const api_key = process.env.NEXT_PUBLIC_API_KEY;
-  const api_url = process.env.NEXT_PUBLIC_API_URL
+  const api_url = `//www.omdbapi.com`
   console.log("api key : ", api_key);
   const url = `${api_url}/?s=avengers&apikey=${api_key}`;
 
