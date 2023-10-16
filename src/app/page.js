@@ -3,7 +3,7 @@ import HeroSection from "./components/HeroSection";
 
 const page = () => {
   return (
-    <div className="bg-gradient-to-r flex-col relative flex justify-center items-center from-pink-300 via-purple-300 to-indigo-300 text-black  w-full">
+    <div className="bg-gradient-to-r flex-col relative flex justify-center items-center from-pink-300 via-purple-300 pt-6 to-indigo-300 text-black sm:h-[80vh] w-full">
       {/* hero section */}
       <div className="w-[80%]">
         <HeroSection
