@@ -14,8 +14,8 @@ const Movies = () => {
   // api_key and url
   const api_key = process.env.NEXT_PUBLIC_API_KEY;
   const api_url = `//www.omdbapi.com`
-  console.log("api key : ", api_key);
   const url = `${api_url}/?s=avengers&apikey=${api_key}`;
+  // console.log("api key : ", api_key);
 
   // function to get movies
   const getMovies = async () => {

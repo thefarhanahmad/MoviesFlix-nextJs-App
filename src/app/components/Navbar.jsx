@@ -10,8 +10,8 @@ const Navbar = () => {
   // console.log("params in navbar : ",router.pathname)
 
   // manage state for responsive navbar
-  const [openMenuBar, setOpenMenuBar] = useState(false);
-  console.log(openMenuBar);
+  const [openMenuBar, setOpenMenuBar] = useState(true);
+  // console.log(openMenuBar);
 
   const changeMenubar = () => {
     setOpenMenuBar(true);

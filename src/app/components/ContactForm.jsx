@@ -10,7 +10,7 @@ const ContactForm = () => {
     email: "",
     comment: "",
   });
-  console.log("userdata : ", userData);
+  // console.log("userdata : ", userData);
 
   // function to post data in contact DB
   const submitData = async (e) => {
@@ -23,7 +23,7 @@ const ContactForm = () => {
         comment: "",
       });
       console.log("userdata submitted successfully ! ");
-      console.log(response);
+      // console.log(response);
     } catch (error) {
       console.log("errror occured while submitting data ", error);
     }
