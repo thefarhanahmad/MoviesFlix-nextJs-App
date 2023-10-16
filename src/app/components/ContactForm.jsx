@@ -2,6 +2,7 @@
 
 import axios from "axios";
 import React, { useState } from "react";
+import toast, { Toaster } from 'react-hot-toast';
 
 const ContactForm = () => {
   // state handling
@@ -22,6 +23,7 @@ const ContactForm = () => {
         email: "",
         comment: "",
       });
+      toast.success("Data submitted successfully!")
       console.log("userdata submitted successfully ! ");
       // console.log(response);
     } catch (error) {
@@ -31,6 +33,7 @@ const ContactForm = () => {
 
   return (
     <div className="w-full sm:w-3/4 md:w-1/2 bg-slate-400 p-4 rounded m-auto">
+      <Toaster/>
       <form action="" onSubmit={submitData}>
         <div className="flex gap-4 flex-col w-full items-center justify-center">
           <h1 className="text-2xl font-semibold text-red-600">Contact Us</h1>
@@ -45,6 +48,7 @@ const ContactForm = () => {
               type="text"
               value={userData.name}
               placeholder="farhan ahmad"
+              required
               className="p-2 rounded-sm outline-none"
             />
           </div>
@@ -57,12 +61,14 @@ const ContactForm = () => {
               type="text"
               value={userData.email}
               placeholder="farhan123@gmail.com"
+              required
               className="p-2 rounded-sm outline-none"
             />
           </div>
           <div className="flex flex-col w-full gap-1">
             <label>Leave a comment</label>
             <textarea
+            required
               value={userData.comment}
               onChange={(e) =>
                 setUserData({ ...userData, comment: e.target.value })

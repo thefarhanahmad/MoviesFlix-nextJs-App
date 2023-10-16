@@ -18,7 +18,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="bg-white flex justify-center items-center text-black w-full h-[10vh] border">
+    <div className="bg-white relative flex justify-center items-center text-black w-full h-[10vh] border">
       <div className="w-[80%] flex justify-between items-center">
         {/* logo */}
         <div className="text-2xl text-red-500">
@@ -51,7 +51,7 @@ const Navbar = () => {
 
           {/* hamburger */}
           <button
-            className="sm:hidden flex flex-col gap-2 z-40 absolute"
+            className="sm:hidden flex flex-col gap-2 z-40 absolute top-[50%] -translate-y-[50%]"
             onClick={() => setOpenMenuBar((pre) => !pre)}
           >
             {openMenuBar ? <GiHamburgerMenu /> : <RxCross2 />}

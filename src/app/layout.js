@@ -6,7 +6,7 @@ import Footer from "./components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "moviesFlix : a movies review platform",
+  title: "moviesFlix - a movies review platform",
   description: "check review and details about movies/series etc.",
 };
 

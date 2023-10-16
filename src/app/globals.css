@@ -25,3 +25,25 @@ body {
     )
     rgb(var(--background-start-rgb));
 } */
+
+/* STYLING SCROLLBAR AND THUMB */
+/* width */
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(80, 76, 76);
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(40, 38, 38);
+}
