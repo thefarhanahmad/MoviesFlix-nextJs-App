@@ -4,16 +4,18 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import MovieCard from "../components/MovieCard";
+import NoMovies from "../components/NoMovies";
 
 const Movies = () => {
   // state management
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
   const [inputValue, setInputValue] = useState("");
+  const [noMovie, setNoMovie] = useState(false);
 
   // api_key and url
   const api_key = process.env.NEXT_PUBLIC_API_KEY;
-  const api_url = `//www.omdbapi.com`
+  const api_url = `//www.omdbapi.com`;
   const url = `${api_url}/?s=avengers&apikey=${api_key}`;
   // console.log("api key : ", api_key);
 
@@ -35,7 +37,7 @@ const Movies = () => {
   // calling function after page relaod first
   useEffect(() => {
     getMovies();
-  },[]);
+  }, []);
 
   // console.log("movies : ", movies);
 
@@ -47,8 +49,14 @@ const Movies = () => {
       const response = await axios.get(
         `${api_url}?s=${inputValue}&apikey=${api_key}`
       );
-      // console.log(response.data.Search);
-      setMovies(response.data.Search);
+      console.log(response);
+      setNoMovie(false);
+      if (response.data.Response === "True") {
+        setMovies(response.data.Search);
+        setNoMovie(false);
+      } else if (response.data.Response === "False") {
+        setNoMovie(true);
+      }
     } catch (error) {
       console.log("Error occured while getting searched data : ");
       console.error(error);
@@ -59,7 +67,6 @@ const Movies = () => {
 
   return (
     <div className="bg-gray-200 w-full pt-6">
-
       {/* input : search movies here */}
       <form onSubmit={searchMovie} className="w-[93%] sm:w-1/2 m-auto mb-6 ">
         <div className="flex justify-between bg-white items-center sm:p-2 p-1 rounded">
@@ -74,10 +81,6 @@ const Movies = () => {
             search
           </button>
         </div>
-        <span className="text-xs text-gray-400 ml-1">
-          Enter more than 3 letters & should be valid input otherwise you &apos; ll get
-          errors
-        </span>
       </form>
       {/* displaying movie or loader depends on loading var */}
       {loading ? (
@@ -85,18 +88,26 @@ const Movies = () => {
           Loading...
         </div>
       ) : (
-        <div className="w-[80%] h-full m-auto flex flex-wrap justify-between p-4 flex-col sm:flex-row gap-8">
-          {movies.map((movie, i) => {
-            return (
-              <MovieCard
-                key={i}
-                Poster={movie.Poster}
-                Title={movie.Title}
-                year={movie.Year}
-                id={movie.imdbID}
-              />
-            );
-          })}
+        <div>
+          {noMovie ? (
+            <div>
+              <NoMovies />
+            </div>
+          ) : (
+            <div className="w-[80%] h-full m-auto flex flex-wrap justify-between p-4 flex-col sm:flex-row gap-8">
+              {movies?.map((movie, i) => {
+                return (
+                  <MovieCard
+                    key={i}
+                    Poster={movie.Poster}
+                    Title={movie.Title}
+                    year={movie.Year}
+                    id={movie.imdbID}
+                  />
+                );
+              })}
+            </div>
+          )}
         </div>
       )}
     </div>
