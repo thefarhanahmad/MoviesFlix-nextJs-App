@@ -3,7 +3,7 @@ import React from "react";
 
 const MovieCard = ({ Poster, Title, year, id }) => {
   return (
-    <div className="sm:w-[45%] md:w-[25%] h- w-[95%] h-auto relative rounded-md text-black bg-white shadow-sm overflow-hidden m-auto">
+    <div className="sm:w-[45%] md:w-[22%] h- w-[95%] h-auto relative rounded-md text-black bg-white shadow-sm overflow-hidden m-auto">
       <div className="flex flex-col gap-1">
         {/* poster */}
         <div className="w-full overflow-hidden object-contain">
